@@ -1,0 +1,25 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.$on("e",function(x,y){
+alert("exe")
+alert(y)
+
+})
+})
+app.controller("c2",function($scope){
+$scope.fun1=function(){
+alert("hii")
+$scope.$emit("e",101)
+}
+
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<div ng-controller="c2">
+<input type="button" value="ok" ng-click="fun1()">
+</div>
+</body>
+
+

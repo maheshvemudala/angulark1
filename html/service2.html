@@ -1,0 +1,26 @@
+<script src="angular.min.js">
+</script>
+<script>
+app=angular.module("serapp",[])
+app.service("$s1",function(){
+this.ser1=function(){
+	return "Fun1 exec.."
+	}
+this.ser2=function(){
+	return "Fun2 exec.."
+	}
+})
+mod1=angular.module("mymod1",['serapp'])
+mod1.controller("c1",function($scope,$s1){
+$scope.fun1=function(){
+	alert($s1.ser1())
+	alert($s1.ser2())
+	}
+})
+</script>
+<body ng-app="mymod1" ng-controller="c1">
+<input type="button" value="Click" ng-click="fun1()">
+</body>
+
+
+

@@ -1,0 +1,12 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($window){
+ alert($window.document.title)
+  $window.document.title="ABCD" 
+ alert($window.document.URL)
+})
+</script>
+<!-- <title>Mysite</title> -->
+<body ng-app="myapp" ng-controller="c1">
+</body>

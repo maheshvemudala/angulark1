@@ -1,0 +1,45 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.fun1=function(){
+obj1={un:$scope.t1,cty:$scope.t2}
+obj2={sal:$scope.t3,hra:$scope.t4}
+$scope.$broadcast("b1",obj1)
+$scope.$broadcast("b2",obj2)
+}
+})
+app.controller("c2",function($scope){
+$scope.$on("b1",function(x,y){
+$scope.user=(y.un)
+$scope.city=(y.cty)
+})
+
+})
+app.controller("c3",function($scope){
+$scope.$on("b2",function(u,v){
+$scope.salary=(v.sal)
+$scope.hra=(v.hra)
+})
+
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+name:<input type="text" ng-model="t1">
+city:<input type="text" ng-model="t2">
+sal:<input type="text" ng-model="t3">
+hra:<input type="text" ng-model="t4">
+<input type="button" value="ok" ng-click="fun1()">
+<div ng-controller="c2">
+user:{{user}}
+city:{{city}}
+</div>
+<div ng-controller="c3">
+sal:{{salary}}
+HRA:{{hra}}
+</div>
+</body>
+
+
+
+

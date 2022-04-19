@@ -1,0 +1,15 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($window,$scope){
+$scope.funprint=function(){
+xy=$window.confirm("You want to print?")
+if(xy)
+$window.print()
+
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Print" ng-click="funprint()">
+</body>
